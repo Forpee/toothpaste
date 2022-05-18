@@ -55,10 +55,10 @@ const tubeGeometry = new THREE.TubeBufferGeometry(curve, 1000, 0.1, 32, false);
 // meshnormalmaterial
 const meshNormalMaterial = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
 // create mesh
-const mesh = new THREE.Mesh(tubeGeometry, meshNormalMaterial);
+const mesh = new THREE.Mesh(tubeGeometry, material);
 scene.add(mesh);
 
-mesh.position.y += -1;
+mesh.position.y += -0.5;
 /**
  * Sizes
  */
