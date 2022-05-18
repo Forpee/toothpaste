@@ -43,7 +43,7 @@ let points = [];
 for (let i = 0; i < number; i++) {
     let p = i / number;
     const x = p * Math.cos(p * 40);
-    const y = p * 4;
+    const y = p * 2;
     const z = p * Math.cos(p * 40);
     points.push(new THREE.Vector3(x, y, z));
 }
@@ -56,6 +56,9 @@ const tubeGeometry = new THREE.TubeBufferGeometry(curve, 1000, 0.1, 32, false);
 const meshNormalMaterial = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
 // create mesh
 const mesh = new THREE.Mesh(tubeGeometry, meshNormalMaterial);
+scene.add(mesh);
+
+mesh.position.y += -2;
 /**
  * Sizes
  */
