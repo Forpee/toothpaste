@@ -24,6 +24,7 @@ float PI=3.14159265;
 void main()
 {
     vec3 n=rotate(vNormal,vec3(0.,1.,0.),-uTime*PI);
+    float diff=dot(vec3(1.),n);
     gl_FragColor=vec4(vUv,1.,1.);
-    gl_FragColor=vec4(n,1.);
+    gl_FragColor=vec4(diff,diff,diff,1.);
 }
