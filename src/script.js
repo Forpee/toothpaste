@@ -38,7 +38,24 @@ const material = new THREE.ShaderMaterial({
 // scene.add(mesh)
 
 let number = 100;
+let points = [];
 
+for (let i = 0; i < number; i++) {
+    let p = i / number;
+    const x = p * Math.cos(p * 40);
+    const y = p * 4;
+    const z = p * Math.cos(p * 40);
+    points.push(new THREE.Vector3(x, y, z));
+}
+
+// catmull rom curve 3d
+const curve = new THREE.CatmullRomCurve3(points);
+// tube geometry
+const tubeGeometry = new THREE.TubeBufferGeometry(curve, 1000, 0.1, 32, false);
+// meshnormalmaterial
+const meshNormalMaterial = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
+// create mesh
+const mesh = new THREE.Mesh(tubeGeometry, meshNormalMaterial);
 /**
  * Sizes
  */
