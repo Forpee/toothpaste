@@ -44,7 +44,7 @@ for (let i = 0; i < number; i++) {
     let p = i / number;
     const x = p * Math.cos(p * 40);
     const y = p * 2;
-    const z = p * Math.cos(p * 40);
+    const z = p * Math.sin(p * 40);
     points.push(new THREE.Vector3(x, y, z));
 }
 
@@ -58,7 +58,7 @@ const meshNormalMaterial = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide
 const mesh = new THREE.Mesh(tubeGeometry, meshNormalMaterial);
 scene.add(mesh);
 
-mesh.position.y += -2;
+mesh.position.y += -1;
 /**
  * Sizes
  */
@@ -116,7 +116,7 @@ const tick = () => {
 
     // Get elapsedtime
     const elapsedTime = clock.getElapsedTime();
-
+    mesh.rotation.y += 0.01;
     // Update uniforms
     material.uniforms.uTime.value = elapsedTime;
 
